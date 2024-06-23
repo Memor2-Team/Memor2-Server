@@ -1,0 +1,26 @@
+  server:
+    port: 8080
+
+  spring:
+    datasource:
+      url: jdbc:mysql://localhost:3306/memor2
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: 1234
+
+    jpa:
+      database: mysql
+      database-platform: org.hibernate.dialect.MySQL8Dialect
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.MySQL8Dialect
+          format_sql: true
+      hibernate:
+        ddl-auto: update
+      show-sql: true
+
+  application:
+    jwt:
+      secretKey: ed4667fac1ca35c325e7298c05cd71e8f7d0ae5b46b48c3956cdc9b587ca5d0e
+      expiration: 172800000    # 48??
+      refreshExpiration: 604800000 # 7?
