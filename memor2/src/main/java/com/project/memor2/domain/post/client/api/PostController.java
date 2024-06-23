@@ -52,6 +52,13 @@ public class PostController {
                 postQueryService.myPostList(pageRequest));
     }
 
+    @GetMapping("/find")
+    public BaseResponseData<Post> findPostById(Long idx){
+        return BaseResponseData.ok(
+                "게시글 조회에 성공했습니다.",
+                postService.findPostByIdx(idx));
+    }
+
     @PatchMapping("")
     @Operation(summary = "게시글 수정", description = "게시글이 수정되었습니다.")
     public BaseResponse editPost(PostEditRequest request){

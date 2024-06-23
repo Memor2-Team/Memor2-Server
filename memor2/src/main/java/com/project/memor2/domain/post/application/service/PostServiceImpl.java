@@ -46,4 +46,12 @@ public class PostServiceImpl implements PostService {
         postRepository.deleteById(idx);
     }
 
+    @Override
+    public Post findPostByIdx(Long idx){
+        return postRepository
+                .findByIdx(idx)
+                .map(postMapper::toPost)
+                .orElseThrow(()-> PostNotFoundException.EXCEPTION);
+    }
+
 }
