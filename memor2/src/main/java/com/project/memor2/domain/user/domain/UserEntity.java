@@ -1,3 +1,4 @@
+package com.project.memor2.domain.user.domain;
 
 import com.project.memor2.domain.user.domain.enums.UserRole;
 import com.project.memor2.global.common.entity.BaseTimeEntity;
