@@ -1,5 +1,9 @@
 package com.project.memor2.domain.user.application.service;
 
+import com.project.memor2.domain.user.client.dto.User;
+import com.project.memor2.domain.user.domain.mapper.UserMapper;
+import com.project.memor2.domain.user.domain.repository.jpa.UserRepository;
+import com.project.memor2.domain.user.exception.UserNotFoundException;
 import com.project.memor2.global.common.repository.UserSecurity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -9,10 +13,16 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService{
 
     private final UserSecurity userSecurity;
+    private final UserRepository userRepository;
+    private final UserMapper userMapper;
 
     @Override
-    public String getUserName() {
-        return userSecurity.getUser().getName();
+    public User getUser() {
+        return userRepository
+                .findByIdx(userSecurity.getUser().getIdx())
+                .map(userMapper::toUser)
+                .orElseThrow(()-> UserNotFoundException.EXCEPTION);
     }
+
 
 }

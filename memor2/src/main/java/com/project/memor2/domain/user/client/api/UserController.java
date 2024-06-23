@@ -1,6 +1,7 @@
 package com.project.memor2.domain.user.client.api;
 
 import com.project.memor2.domain.user.application.service.UserService;
+import com.project.memor2.domain.user.client.dto.User;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -18,8 +19,8 @@ public class UserController {
 
     @GetMapping("")
     @Operation(summary = "유저 이름 조회", description = "현재 로그인한 유저 이름을 조회합니다.")
-    public String getUserName(){
-        return userService.getUserName();
+    public User getUserName(){
+        return userService.getUser();
     }
 
 }

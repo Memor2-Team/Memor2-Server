@@ -11,13 +11,10 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
-import org.hibernate.annotations.DynamicUpdate;
 
 @Entity
 @Getter
 @SuperBuilder
-@DynamicUpdate
-@Table(name = "tb_user")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class PostEntity extends BaseTimeEntity {
 

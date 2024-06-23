@@ -3,6 +3,7 @@ package com.project.memor2.domain.user.domain.mapper;
 import com.project.memor2.domain.auth.client.dto.request.SignUpRequest;
 import com.project.memor2.domain.user.client.dto.User;
 import com.project.memor2.domain.user.domain.UserEntity;
+import com.project.memor2.domain.user.domain.enums.UserRole;
 import com.project.memor2.global.annotation.Mapper;
 
 @Mapper
@@ -23,6 +24,7 @@ public class UserMapper {
                 .name(request.getName())
                 .email(request.getEmail())
                 .password(password)
+                .userRole(UserRole.USER)
                 .build();
     }
 
