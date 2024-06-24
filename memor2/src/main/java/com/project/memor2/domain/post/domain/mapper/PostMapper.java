@@ -33,6 +33,8 @@ public class PostMapper {
                 .idx(post.getIdx())
                 .title(post.getTitle())
                 .content(post.getContent())
+                .author(post.getAuthor())
+                .createdDateTime(post.getCreatedDateTime())
                 .build();
     }
 
